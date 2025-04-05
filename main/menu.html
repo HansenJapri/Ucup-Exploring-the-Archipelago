@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggy Playhouse</title>
+    <link rel="stylesheet" href="menu.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <section id="background">
+            <img src="aset/mainmenu.jpg" alt="background">
+        </section>
+
+        <section id="title">
+            <img src="aset/title.png" alt="Piggy Playhouse">
+        </section>
+
+        <section id="selection">
+            <div class="character-selection">
+                <div class="character-row">
+                    <div class="arrow" id="left">
+                        <img src="aset/left-arrow.png" alt="Left Arrow">
+                    </div>
+
+                    <div class="character-photo">
+                        <img id="characterImage" src="aset/babi.png" alt="Character">
+                        <img id="lockedOverlay" class="locked-overlay" src="aset/blur-lock.png" alt="Locked">
+                    </div>
+                    
+
+                    <div class="arrow" id="right">
+                        <img src="aset/right-arrow.png" alt="Right Arrow">
+                    </div>
+                </div>
+
+                <div class="start">
+                    <div class="wooden-sign">
+                        <input type="text" id="uname" name="uname" placeholder="Enter your name">
+                    </div>
+                    <div class="start-button">
+                        <button class="start-button" id="startGame">Start Game</button>
+                    </div>    
+                </div>
+        </section>
+    </div>
+
+    <script>
+        const images = ["aset/babi.png", "aset/boy.jpg", "aset/girl.png"];
+        const lockedCharacters = ["aset/boy.jpg", "aset/girl.png"];
+        let currentIndex = 0;
+
+        const characterImage = document.getElementById("characterImage");
+        const leftArrow = document.getElementById("left");
+        const rightArrow = document.getElementById("right");
+        const startButton = document.getElementById("startGame");
+        const usernameInput = document.getElementById("uname");
+
+        function updateLockOverlay() {
+            const selectedCharacter = images[currentIndex];
+            const lockedOverlay = document.getElementById("lockedOverlay");
+
+            if (lockedCharacters.includes(selectedCharacter)) {
+                lockedOverlay.style.display = "block";
+            } else {
+                lockedOverlay.style.display = "none";
+            }
+        }
+
+        function changeImage(direction) {
+            characterImage.style.opacity = 0;
+
+            setTimeout(() => {
+                if (direction === "right") {
+                    currentIndex = (currentIndex + 1) % images.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                }
+
+                characterImage.src = images[currentIndex];
+                updateLockOverlay();
+                setTimeout(() => {
+                    characterImage.style.opacity = 1;
+                }, 50);
+            }, 300);
+        }
+
+        startButton.addEventListener("click", () => {
+            const selectedCharacter = images[currentIndex];
+            const username = usernameInput.value.trim();
+
+            if (lockedCharacters.includes(selectedCharacter)) {
+                alert("Character is still locked, please select another character.");
+            } else if (!username) {
+                alert("Please enter your name to start the game.");
+            } else {
+                localStorage.setItem("playerName", username);
+                localStorage.setItem("characterImage", selectedCharacter);
+                console.log(username);
+                //Redirect to game page
+                window.location.href = "game.html";
+            }
+        });
+
+        rightArrow.addEventListener("click", () => changeImage("right"));
+        leftArrow.addEventListener("click", () => changeImage("left"));
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.character-photo, .start-button, .wooden-sign');
+                elements.forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 1500);
+            
+            setInterval(() => {
+                const titleImg = document.querySelector('#title img');
+                titleImg.classList.add('pulse');
+                
+                setTimeout(() => {
+                    titleImg.classList.remove('pulse');
+                }, 500);
+            }, 5000);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.08); }
+            }
+            
+            .pulse {
+                animation: pulse 0.5s ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
