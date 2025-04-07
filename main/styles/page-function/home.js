@@ -128,23 +128,130 @@ function checkLocation() {
                     btnKe2.textContent = "Milk Cow";
                     btnKe3.textContent = "Collect Eggs";
                     btnKe4.textContent = "Transport Crops";
+                    btnKe1.addEventListener("click",function() {
+                        sleep -= 10;
+                        hygiene -= 15;
+                        money += 20000;
+                        sleepBar.style.width = sleep + "%";
+                        hygieneBar.style.width = hygiene + "%";
+                        moneyDisplay.textContent = money;
+                    });
+                    btnKe2.addEventListener("click",function() {
+                        hygiene -= 10;
+                        fun -= 10;
+                        money += 15000;
+                        hygieneBar.style.width = hygiene + "%";
+                        funBar.style.width = fun + "%";
+                        moneyDisplay.textContent = money;
+                    });
+                    btnKe3.addEventListener("click",function() {
+                        hunger -= 5;
+                        sleep -= 5;
+                        money += 10000;
+                        hungerBar.style.width = hunger + "%";
+                        sleepBar.style.width = sleep + "%";
+                        moneyDisplay.textContent = money;
+                    });
+                    btnKe4.addEventListener("click",function() {
+                        hunger -= 15;
+                        hygiene -= 20;
+                        money += 30000;
+                        hungerBar.style.width = hunger + "%";
+                        hygieneBar.style.width = hygiene + "%";
+                        moneyDisplay.textContent = money;
+                    });
                 } else if (lastLocation == "PIG ISLAND") {
                     btnKe1.textContent = "Swim";
                     btnKe2.textContent = "Feed Pigs";
                     btnKe3.textContent = "Picnic";
                     btnKe4.textContent = "Ride Attraction";
+                    btnKe1.addEventListener("click",function() {
+                        fun += 25;
+                        hygiene -= 10;
+                        funBar.style.width = fun + "%";
+                        hygieneBar.style.width = hygiene + "%";
+                    });
+                    btnKe2.addEventListener("click",function() {
+                        fun += 15;
+                        hunger -= 5;
+                        funBar.style.width = fun + "%";
+                        hungerBar.style.width = hunger + "%";
+                    });
+                    btnKe3.addEventListener("click",function() {
+                        fun += 20;
+                        sleep -= 10;
+                        funBar.style.width = fun + "%";
+                        sleepBar.style.width = sleep + "%";
+                    });
+                    btnKe4.addEventListener("click",function() {
+                        fun += 30;
+                        money -= 10000;
+                        funBar.style.width = fun + "%";
+                        moneyDisplay.textContent = money;
+                    });
                 } else if (lastLocation == "GYM") {
                     btnKe1.textContent = "Cardio";
                     btnKe2.textContent = "Weightlift";
                     btnKe3.textContent = "Yoga";
                     btnKe4.textContent = "Sauna";
+                    btnKe1.addEventListener("click",function() {
+                        hunger -= 10;
+                        sleep -= 15;
+                        hygiene -= 10;
+                        hungerBar.style.width = hunger + "%";
+                        sleepBar.style.width = sleep + "%";
+                        hygieneBar.style.width = hygiene + "%";
+                    });
+                    btnKe2.addEventListener("click",function() {
+                        hygiene -= 15;
+                        fun -= 10;
+                        hygieneBar.style.width = hygiene + "%";
+                        funBar.style.width = fun + "%";
+                    });
+                    btnKe3.addEventListener("click",function() {
+                        fun += 20;
+                        sleep -= 10;
+                        funBar.style.width = fun + "%";
+                        sleepBar.style.width = sleep + "%";
+                    });
+                    btnKe4.addEventListener("click",function() {
+                        hygiene -= 10;
+                        sleep += 10;
+                        hygieneBar.style.width = hygiene + "%";
+                        sleepBar.style.width = sleep + "%";
+                    });
                 } else if (lastLocation == "PARK") {
                     btnKe1.textContent = "Clean the park";
                     btnKe2.textContent = "Meditation";
                     btnKe3.textContent = "Buy snack";
                     btnKe4.textContent = "Jogging";
+                    btnKe1.addEventListener("click",function() {
+                        hygiene += 10;
+                        fun -= 5;
+                        hygieneBar.style.width = hygiene + "%";
+                        funBar.style.width = fun + "%";
+                    });
+                    btnKe2.addEventListener("click",function() {
+                        fun += 25;
+                        sleep += 5;
+                        funBar.style.width = fun + "%";
+                        sleepBar.style.width = sleep + "%";
+                    });
+                    btnKe3.addEventListener("click",function() {
+                        money -= 5000;
+                        hunger += 10;
+                        moneyDisplay.textContent = money;
+                        hungerBar.style.width = hunger + "%";
+                    });
+                    btnKe4.addEventListener("click",function() {
+                        fun += 10;
+                        hunger -= 10;
+                        sleep -= 10;
+                        funBar.style.width = fun + "%";
+                        hungerBar.style.width = hunger + "%";
+                        sleepBar.style.width = sleep + "%";
+                    });
                 }
-
             }
             return;
         }
