@@ -5,114 +5,84 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="./main/styles/main-element/home.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <title>Piggy PLayhouse</title>
-</head>
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"></head>
 <body>
-
-
    <div class="container">
-
       <div class="content-1">
-
          <div class="menu-up">
             <div class="up">
-               <p><span class="morning">Good morning </span><span class="name">john thor</span></p>
+               <p><span class="morning">Good afternoon </span><span class="name">John Thor</span></p>
                <p><span class="day">Monday </span> | <span class="day-ke">Day 1 </span> | <span class="time">09:00</span></p>
                <div class="for-money">
-                  <i class="fa-brands fa-bitcoin"></i>
-                  <p class="money"> 230.000</p>
+                  <i class="fa fa-money-bill"></i>
+                  <p class="money">40000</p>
                </div>
             </div>
 
             <div class="down">
                <div class="eat-down">
                   <span><i class="fa-solid fa-utensils"></i></span>
-                  <div class="eat-bar"><div class="progress"></div></div>
+                  <div class="eat-bar"><div class="progress" style="width: 70%;"></div></div>
                </div>
-               <div class="sleep-down">
-                  <span><i class="fa-solid fa-bed"></i></span>
-                  <div class="sleep-bar"><div class="progress"></div></div>
+               <div class="energy-down">
+                  <span><i class="fa-solid fa-bolt"></i></span>
+                  <div class="energy-bar"><div class="progress" style="width: 80%;"></div></div>
                </div>
                <div class="happiness-down">
                   <span><i class="fa-solid fa-face-smile-beam"></i></span>
-                  <div class="happiness-bar"><div class="progress"></div></div>
+                  <div class="happiness-bar"><div class="progress" style="width: 60%;"></div></div>
                </div>
                <div class="hygiene-down">
-                  <span><i class="fa-solid fa-hand-sparkles"></i></span>
-                  <div class="hygiene-bar"><div class="progress"></div></div>
+                  <span><i class="fa-solid fa-bathtub"></i></span>
+                  <div class="hygiene-bar"><div class="progress" style="width: 90%;"></div></div>
                </div>
             </div>
          </div>
 
          <div class="frame">
-            <div class="corner_topleft"></div>
-            <div class="corner_topright"></div>
-            <div class="corner_bnerottomleft"></div>
-            <div class="corner_bottomright"></div>
-
-
-            <div class="camera">
-               <div class="map pixel-art">
-                  <div class="character" facing="down" walking="true">
-                     <div class="shadow pixel-art"></div>
-                     <div class="character_spritesheet pixel-art"></div>
-                  </div>
+            <div class="map">
+               <div class="character" facing="down" walking="false">
+                  <div class="shadow"></div>
+                  <div class="character_spritesheet"></div>
                </div>
-
             </div>
          </div>
       </div>
-
 
       <div class="content-2">
          <div class="right-menu">
-            <span class="notification location-alert">Welcome to Piggy Playland</span>
-            <button class="btn-right-menu btn-ke-1">Eat</button>
-            <button class="btn-right-menu btn-ke-2">Shower</button>
-            <button class="btn-right-menu btn-ke-3">Sleep</button>
-            <button class="btn-right-menu btn-ke-4">dll</button>
-
+            <div class="notification">Welcome to Piggy Playhouse!</div>
+            <button class="btn-right-menu btn-ke-1">-</button>
+            <button class="btn-right-menu btn-ke-2">-</button>
+            <button class="btn-right-menu btn-ke-3">-</button>
+            <button class="btn-right-menu btn-ke-4">-</button>
          </div>
 
          <div class="dpad">
-            <div class="DemoDirectionUI flex-center">
-               <button class="dpad-button dpad-left">
-                  <svg viewBox="0 0 24 24">
-                     <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
-                 </svg>
-               </button>
-               <button class="dpad-button dpad-up">
-                  <svg viewBox="0 0 24 24">
-                     <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
-                 </svg>
-               </button>
-               <button class="dpad-button dpad-down">
-                  <svg viewBox="0 0 24 24">
-                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                 </svg>
-               </button>
-               <button class="dpad-button dpad-right">
-                  <svg viewBox="0 0 24 24">
-                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                 </svg>
-               </button>
-            </div>
-            <!-- <div class="location-alert"></div> -->
+            <button class="dpad-button dpad-up">
+               <svg viewBox="0 0 24 24">
+                  <path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+               </svg>
+            </button>
+            <button class="dpad-button dpad-left">
+               <svg viewBox="0 0 24 24">
+                  <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+               </svg>
+            </button>
+            <button class="dpad-button dpad-down">
+               <svg viewBox="0 0 24 24">
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+               </svg>
+            </button>
+            <button class="dpad-button dpad-right">
+               <svg viewBox="0 0 24 24">
+                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+               </svg>
+            </button>
          </div>
-
-
-
       </div>
-
-
    </div>
-
-
-
-
    <script src="./main/styles/page-function/home.js"></script>
 </body>
-
 </html>
