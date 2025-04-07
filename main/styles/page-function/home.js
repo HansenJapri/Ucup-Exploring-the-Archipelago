@@ -9,6 +9,67 @@ let speed = 1;
 let lastLocation = "";
 
 
+const btnKe1 = document.querySelector(".btn-ke-1");
+const btnKe2 = document.querySelector(".btn-ke-2");
+const btnKe3 = document.querySelector(".btn-ke-3");
+const btnKe4 = document.querySelector(".btn-ke-4");
+
+const hungerBar = document.querySelector('.eat-bar .progress');
+const sleepBar = document.querySelector('.sleep-bar .progress');
+const funBar = document.querySelector('.happiness-bar .progress');
+const hygieneBar = document.querySelector('.hygiene-bar .progress');
+const moneyDisplay = document.querySelector('.money');
+
+let hunger = 70;
+let sleep = 80;
+let fun = 60;
+let hygiene = 90;
+let money = 100000;
+
+hungerBar.style.width = hunger + "%";
+sleepBar.style.width = sleep + "%";
+funBar.style.width = fun + "%";
+hygieneBar.style.width = hygiene + "%";
+moneyDisplay.textContent = money;
+
+btnKe1.textContent = "-";
+btnKe2.textContent = "-";
+btnKe3.textContent = "-";
+btnKe4.textContent = "-";
+
+const actions = {
+    HOME: [
+        { name: "Eat", hunger: +20, money: -10000 },
+        { name: "Shower", hygiene: +20 },
+        { name: "Watch", fun: +15, sleep: -5 },
+        { name: "Sleep", sleep: +25 }
+    ],
+    FARM: [
+        { name: "Harvest Rice", money: +20000, sleep: -10, hygiene: -15 },
+        { name: "Milk Cow", money: +15000, hygiene: -10, fun: -10 },
+        { name: "Collect Eggs", money: +10000, hunger: -5, sleep: -5 },
+        { name: "Transport Crops", money: +30000, hunger: -15, hygiene: -20 }
+    ],
+    PIG_ISLAND: [
+        { name: "Swim", fun: +25, hygiene: -10 },
+        { name: "Feed Pigs", fun: +15, hunger: -5 },
+        { name: "Picnic", fun: +20, sleep: -10 },
+        { name: "Ride Attraction", fun: +30, money: -10000 }
+    ],
+    GYM: [
+        { name: "Cardio", hunger: -10, sleep: -15, hygiene: -10 },
+        { name: "Weightlift", hygiene: -15, fun: -10 },
+        { name: "Yoga", fun: +20, sleep: -10 },
+        { name: "Sauna", hygiene: -10, sleep: +10 }
+    ],
+    PARK: [
+        { name: "Clean the park", hygiene: +10, fun: -5 },
+        { name: "Meditation", fun: +25, sleep: +5 },
+        { name: "Buy snack", money: -5000, hunger: +10 },
+        { name: "Jogging", fun: +10, hunger: -10, sleep: -10 }
+    ]
+};
+
 
 const locations = [
     { name: "HOME", x: 20, y: 15, radius: 30 },
@@ -28,6 +89,62 @@ function checkLocation() {
             if (lastLocation !== location.name) {
                 showLocationAlert(location.name);
                 lastLocation = location.name;
+
+
+
+                if (lastLocation == "HOME") {
+                    btnKe1.textContent = "Eat";
+                    btnKe2.textContent = "Shower";
+                    btnKe3.textContent = "Watch";
+                    btnKe4.textContent = "Sleep";
+                    btnKe1.addEventListener("click",function() {
+                        hunger += 20;
+                        money -=10000;
+                        hungerBar.style.width = hunger + "%";
+                        moneyDisplay.textContent = money;
+                    });
+
+                    btnKe2.addEventListener("click",function() {
+                        hunger += 20;
+                        money -=10000;
+                        hungerBar.style.width = hunger + "%";
+                        moneyDisplay.textContent = money;
+                    });
+                    btnKe3.addEventListener("click",function() {
+                        hunger += 20;
+                        money -=10000;
+                        hungerBar.style.width = hunger + "%";
+                        moneyDisplay.textContent = money;
+                    });
+                    btnKe4.addEventListener("click",function() {
+                        hunger += 20;
+                        money -=10000;
+                        hungerBar.style.width = hunger + "%";
+                        moneyDisplay.textContent = money;
+                    });
+
+                } else if (lastLocation == "FARM") {
+                    btnKe1.textContent = "Harvest Rice";
+                    btnKe2.textContent = "Milk Cow";
+                    btnKe3.textContent = "Collect Eggs";
+                    btnKe4.textContent = "Transport Crops";
+                } else if (lastLocation == "PIG ISLAND") {
+                    btnKe1.textContent = "Swim";
+                    btnKe2.textContent = "Feed Pigs";
+                    btnKe3.textContent = "Picnic";
+                    btnKe4.textContent = "Ride Attraction";
+                } else if (lastLocation == "GYM") {
+                    btnKe1.textContent = "Cardio";
+                    btnKe2.textContent = "Weightlift";
+                    btnKe3.textContent = "Yoga";
+                    btnKe4.textContent = "Sauna";
+                } else if (lastLocation == "PARK") {
+                    btnKe1.textContent = "Clean the park";
+                    btnKe2.textContent = "Meditation";
+                    btnKe3.textContent = "Buy snack";
+                    btnKe4.textContent = "Jogging";
+                }
+
             }
             return;
         }
@@ -35,6 +152,10 @@ function checkLocation() {
 
     lastLocation = "";
 }
+
+
+
+
 
 function showLocationAlert(locationName) {
     // locations.forEach(location => {
@@ -98,14 +219,14 @@ const directions = {
     right: "right",
 }
 const keys = {
-    38: directions.up,   
-    87: directions.up,   
-    37: directions.left,  
-    65: directions.left,  
-    39: directions.right, 
-    68: directions.right, 
-    40: directions.down,  
-    83: directions.down,  
+    38: directions.up,
+    87: directions.up,
+    37: directions.left,
+    65: directions.left,
+    39: directions.right,
+    68: directions.right,
+    40: directions.down,
+    83: directions.down,
 }
 document.addEventListener("keydown", (e) => {
     var dir = keys[e.which];
@@ -176,3 +297,58 @@ document.querySelector(".dpad-down").addEventListener("mouseover", (e) => handle
 // }
 
 // document.onmousemove = readMouse;
+
+
+let nameTitle = document.querySelector(".name");
+let storedName = localStorage.getItem("playerName");
+
+if (storedName) {
+    nameTitle.textContent = storedName;
+
+    localStorage.removeItem("playerName");
+}
+
+
+let morning = document.querySelector(".morning");
+let dayEl = document.querySelector(".day");
+let dayKeEl = document.querySelector(".day-ke");
+let timeEl = document.querySelector(".time");
+
+
+let gameHour = 9;
+let gameMinute = 0;
+let gameDay = 1;
+let dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+let currentDayIndex = 0;
+
+function updateUI() {
+    let hourStr = gameHour.toString().padStart(2, '0');
+    let minuteStr = gameMinute.toString().padStart(2, '0');
+    timeEl.textContent = `${hourStr}:${minuteStr}`;
+
+    if (gameHour >= 1 && gameHour <= 10) {
+        morning.textContent = "Good morning ";
+    } else if (gameHour >= 11 && gameHour <= 18) {
+        morning.textContent = "Good afternoon ";
+    } else {
+        morning.textContent = "Good night ";
+    }
+
+    dayEl.textContent = dayNames[currentDayIndex];
+    dayKeEl.textContent = `Day ${gameDay}`;
+}
+
+
+setInterval(() => {
+    gameHour += 1;
+
+    if (gameHour > 24) {
+        gameHour = 1;
+        currentDayIndex = (currentDayIndex + 1) % 7;
+        gameDay += 1;
+    }
+
+    updateUI();
+}, 5000);
+
+updateUI();

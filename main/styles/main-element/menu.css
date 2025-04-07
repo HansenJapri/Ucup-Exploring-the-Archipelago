@@ -132,7 +132,8 @@
 .start-button {
     width: 500px;
     height: 100px;
-    background: url('aset/empty-sign.png') no-repeat center;
+    background: url('../assets/empty-sign.png') no-repeat center;
+    /* background-color: black; */
     display: flex;
     align-items: center;
     justify-content: center;

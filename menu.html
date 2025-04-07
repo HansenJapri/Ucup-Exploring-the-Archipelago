@@ -4,35 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piggy Playhouse</title>
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="./main/styles/main-element/menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="container">
         <section id="background">
-            <img src="aset/mainmenu.jpg" alt="background">
+            <img src="./main/styles/assets/mainmenu.jpg" alt="background">
         </section>
 
         <section id="title">
-            <img src="aset/title.png" alt="Piggy Playhouse">
+            <img src="./main/styles/assets/title.png" alt="Piggy Playhouse">
         </section>
 
         <section id="selection">
             <div class="character-selection">
                 <div class="character-row">
                     <div class="arrow" id="left">
-                        <img src="aset/left-arrow.png" alt="Left Arrow">
+                        <img src="./main/styles/assets/left-arrow.png" alt="Left Arrow">
                     </div>
 
                     <div class="character-photo">
-                        <img id="characterImage" src="aset/babi.png" alt="Character">
-                        <img id="lockedOverlay" class="locked-overlay" src="aset/blur-lock.png" alt="Locked">
+                        <img id="characterImage" src="./main/styles/assets/babi.png" alt="Character">
+                        <img id="lockedOverlay" class="locked-overlay" src="./main/styles/assets/blur-lock.png" alt="Locked">
                     </div>
                     
-
                     <div class="arrow" id="right">
-                        <img src="aset/right-arrow.png" alt="Right Arrow">
+                        <img src="./main/styles/assets/right-arrow.png" alt="Right Arrow">
                     </div>
                 </div>
 
@@ -48,8 +47,8 @@
     </div>
 
     <script>
-        const images = ["aset/babi.png", "aset/boy.jpg", "aset/girl.png"];
-        const lockedCharacters = ["aset/boy.jpg", "aset/girl.png"];
+        const images = ["./main/styles/assets/babi.png", "./main/styles/assets/boy.jpg", "./main/styles/assets/girl.png"];
+        const lockedCharacters = ["./main/styles/assets/boy.jpg", "./main/styles/assets/girl.png"];
         let currentIndex = 0;
 
         const characterImage = document.getElementById("characterImage");
@@ -100,7 +99,7 @@
                 localStorage.setItem("characterImage", selectedCharacter);
                 console.log(username);
                 //Redirect to game page
-                window.location.href = "game.html";
+                window.location.href = "index.html";
             }
         });
 

@@ -53,6 +53,15 @@
     padding: 0 12px;
 }
 
+.container .content-1 .menu-up .up .for-money {
+  display: flex;
+  align-items: center;
+}
+
+.container .content-1 .menu-up .up .for-money i , .money {
+  margin-right: 5px;
+}
+
 .container .content-1 .menu-up .down {
     display: flex;
     justify-content: space-between;
@@ -84,13 +93,13 @@
 .hygiene-bar .progress {
     height: 100%;
     background-color: grey;
-    animation: bar-animation 5s forwards;
+    /* animation: bar-animation 5s forwards; */
 }
 
-@keyframes bar-animation {
+/* @keyframes bar-animation {
     0% {width: 0%;}
     100% {width: 100%;}
-}
+} */
 
   .container .content-2 {
     /* background-color: #17dfea; */
