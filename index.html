@@ -3,17 +3,23 @@
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
    <link rel="stylesheet" href="./main/styles/main-element/home.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet"></head>
 <body>
+   <div class="popup-bg">
+      <div class="popup-content">
+         <p>Game Over</p>
+        <button class="close-btn" onclick="document.querySelector('.popup-bg').style.display='none'">Tutup</button>
+      </div>
+    </div>
    <div class="container">
       <div class="content-1">
          <div class="menu-up">
             <div class="up">
                <p><span class="morning">Good afternoon </span><span class="name">John Thor</span></p>
-               <p><span class="day">Monday </span> | <span class="day-ke">Day 1 </span> | <span class="time">09:00</span></p>
+               <p><span class="day">Monday</span> | <span class="day-ke">Day 1 </span> | <span class="time">09:00</span></p>
                <div class="for-money">
                   <i class="fa fa-money-bill"></i>
                   <p class="money">40000</p>

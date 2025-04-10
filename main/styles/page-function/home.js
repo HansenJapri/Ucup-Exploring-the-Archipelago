@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let x = 90;
     let y = 34;
     let held_directions = [];
-    let speed = 0.3; //walking speed nya gw lamain
+    let speed = 0.6; //walking speed nya gw lamain
     let lastLocation = "";
 
     let btnKe1 = document.querySelector(".btn-ke-1");
@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hygieneBar.style.width = hygiene + "%";
         moneyDisplay.textContent = money;
 
-        if (hunger <= 20 || energy <= 20 || hygiene <= 20 || fun <= 20) {
-            showLocationAlert("Warning: Low stats!");
+        if (hunger <= 0 || energy <= 0 || hygiene <= 0 || fun <= 0) {
+            document.querySelector('.popup-bg').style.display='flex';
         }
     }
     updateStats();
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const locations = [
         { name: "HOME", x: 40, y: 45, radius: 36},
         { name: "FARM", x: 180, y: 20, radius: 40},
-        { name: "PIG ISLAND", x: 200, y: 130, radius:40},
+        { name: "PIG ISLAND", x: 180, y: 110, radius:45},
         { name: "GYM", x: 37, y: 88, radius: 35 },
-        { name: "PARK", x: 122, y: 83, radius:35}
+        { name: "PARK", x: 122, y: 83, radius:30}
     ];
 
     //bikin marker lokasi buat deteksi karakter nanti
@@ -422,9 +422,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (held_direction === directions.up) { newY -= speed; }
 
             let leftLimit = -4;
-            let rightLimit = (16 * 13) + 5;
+            let rightLimit = (16 * 11.5) + 5;
             let topLimit = 18;
-            let bottomLimit = (15 * 8);
+            let bottomLimit = (14 * 8);
 
             x = Math.max(leftLimit, Math.min(rightLimit, newX));
             y = Math.max(topLimit, Math.min(bottomLimit, newY));
